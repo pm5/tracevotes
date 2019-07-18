@@ -1,0 +1,204 @@
+#!/usr/bin/env perl -w
+
+use v5.026;
+use File::Basename;
+use Text::CSV qw/csv/;
+use YAML::Dumper;
+use utf8;
+binmode STDOUT, ":encoding(utf-8)";
+
+
+my $dumper = YAML::Dumper->new;
+
+my @fields = qw/YEAR CITY_COUNTY TOWNSHIP_CITY VILLAGE BOOTH_NUMBER CANDIDATE RECEIVED_VOTES VALID_VOTES INVALID_VOTES ISSUED_VOTES UNISSUED_VOTES POPULATION VOTING_RATE/;
+
+sub batch_convert_ods_to_csv {
+    my $ods_files = shift;
+    my $outdir = dirname $ods_files;
+
+    if (`ls $outdir/*.csv`) {
+        say "- CSV files exist in $outdir. skipped.";
+        return;
+    }
+
+    say ". convert ODS files to CSV under $outdir";
+
+    system <<"END_SYSTEM";
+soffice --headless --convert-to csv --infilter='csv:59,34,utf8' --outdir $outdir $ods_files
+END_SYSTEM
+}
+
+sub convert_csv_to_records {
+    my ($year, $city_county, $csv_path) = @_;
+    my $rows = csv(in => $csv_path, sep => ";");
+
+    my $title = shift @{$rows};
+    my $cols = shift @{$rows};
+    my $candidates = shift @{$rows};
+
+    my $totals;
+    while (1) {
+        my $row = shift @{$rows};
+        if ((join "", @$row) ne "") {
+            $totals = $row;
+            last;
+        }
+    }
+
+    #say $dumper->dump($cols);
+    #say $dumper->dump($candidates);
+    #say $dumper->dump($totals);
+
+    my @cand_cols;
+    foreach (0..(scalar @$candidates)) {
+        push @cand_cols, $_ if $candidates->[$_];
+    }
+    my $vote_col = [sort @cand_cols]->[-1] + 1;
+
+    #my $year = "";
+    #my $city_county = "";
+    my $township_city = "";
+
+    my @records;
+    foreach my $row (@${rows}) {
+        $row->[0] =~ s/　//g;
+        $row->[1] =~ s/　//g;
+
+        $township_city = $row->[0] || $township_city;
+        next unless $row->[1];
+
+        warn "! found 1 row with township @{[$row->[0]]} and village @{[$row->[1]]}"
+            if $row->[0] && $row->[1];
+        my $village = $row->[1];
+        my $booth_number = $row->[2];
+
+        my $valid_votes    = $row->[$vote_col + 0];
+        my $invalid_votes  = $row->[$vote_col + 1];
+        my $issued_votes   = $row->[$vote_col + 4];
+        my $unissued_votes = $row->[$vote_col + 5];
+        my $population     = $row->[$vote_col + 6];
+        my $voting_rate    = $row->[$vote_col + 7];
+
+        foreach my $i (@cand_cols) {
+            (my $candidate = $candidates->[$i]) =~ s/\n//g;
+            my $received_votes = $row->[$i];
+            push @records, [
+                $year,
+                $city_county,
+                $township_city,
+                $village,
+                $booth_number,
+                $candidate,
+                $received_votes,
+                $valid_votes,
+                $invalid_votes,
+                $issued_votes,
+                $unissued_votes,
+                $population,
+                $voting_rate,
+            ];
+        }
+    }
+
+    @records;
+}
+
+sub batch_convert_csv_to_records {
+    my $output_path = shift;
+    my $entries = shift;
+    my @records;
+    while (my $args = shift @$entries) {
+        push @records, convert_csv_to_records @$args;
+    }
+
+    csv(out => $output_path, in => \@records, headers => \@fields, encoding => "utf-8");
+    @records;
+}
+
+batch_convert_ods_to_csv "downloaded/president/2008/rpt06-4_*.xls";
+batch_convert_ods_to_csv "downloaded/president/2012/總統-A05-4-*.xls";
+batch_convert_ods_to_csv "downloaded/president/2016/總統-A05-4-*.ods";
+
+batch_convert_csv_to_records("data/president.csv", [
+    [2008, "臺北市", "downloaded/president/2008/rpt06-4_100.csv"],
+    [2008, "高雄市", "downloaded/president/2008/rpt06-4_200.csv"],
+    [2008, "臺北縣", "downloaded/president/2008/rpt06-4_301.csv"],
+    [2008, "宜蘭縣", "downloaded/president/2008/rpt06-4_302.csv"],
+    [2008, "桃園縣", "downloaded/president/2008/rpt06-4_303.csv"],
+    [2008, "新竹縣", "downloaded/president/2008/rpt06-4_304.csv"],
+    [2008, "苗栗縣", "downloaded/president/2008/rpt06-4_305.csv"],
+    [2008, "臺中縣", "downloaded/president/2008/rpt06-4_306.csv"],
+    [2008, "彰化縣", "downloaded/president/2008/rpt06-4_307.csv"],
+    [2008, "南投縣", "downloaded/president/2008/rpt06-4_308.csv"],
+    [2008, "雲林縣", "downloaded/president/2008/rpt06-4_309.csv"],
+    [2008, "嘉義縣", "downloaded/president/2008/rpt06-4_310.csv"],
+    [2008, "臺南縣", "downloaded/president/2008/rpt06-4_311.csv"],
+    [2008, "高雄縣", "downloaded/president/2008/rpt06-4_312.csv"],
+    [2008, "屏東縣", "downloaded/president/2008/rpt06-4_313.csv"],
+    [2008, "臺東縣", "downloaded/president/2008/rpt06-4_314.csv"],
+    [2008, "花蓮縣", "downloaded/president/2008/rpt06-4_315.csv"],
+    [2008, "澎湖縣", "downloaded/president/2008/rpt06-4_316.csv"],
+    [2008, "基隆市", "downloaded/president/2008/rpt06-4_317.csv"],
+    [2008, "新竹市", "downloaded/president/2008/rpt06-4_318.csv"],
+    [2008, "臺中市", "downloaded/president/2008/rpt06-4_319.csv"],
+    [2008, "嘉義市", "downloaded/president/2008/rpt06-4_320.csv"],
+    [2008, "臺南市", "downloaded/president/2008/rpt06-4_321.csv"],
+    [2008, "金門縣", "downloaded/president/2008/rpt06-4_401.csv"],
+    [2008, "連江縣", "downloaded/president/2008/rpt06-4_402.csv"],
+    [2012, "南投縣", "downloaded/president/2012/總統-A05-4-(南投縣).csv"],
+    [2012, "嘉義市", "downloaded/president/2012/總統-A05-4-(嘉義市).csv"],
+    [2012, "嘉義縣", "downloaded/president/2012/總統-A05-4-(嘉義縣).csv"],
+    [2012, "基隆市", "downloaded/president/2012/總統-A05-4-(基隆市).csv"],
+    [2012, "宜蘭縣", "downloaded/president/2012/總統-A05-4-(宜蘭縣).csv"],
+    [2012, "屏東縣", "downloaded/president/2012/總統-A05-4-(屏東縣).csv"],
+    [2012, "彰化縣", "downloaded/president/2012/總統-A05-4-(彰化縣).csv"],
+    [2012, "新北市", "downloaded/president/2012/總統-A05-4-(新北市).csv"],
+    [2012, "新竹市", "downloaded/president/2012/總統-A05-4-(新竹市).csv"],
+    [2012, "新竹縣", "downloaded/president/2012/總統-A05-4-(新竹縣).csv"],
+    [2012, "桃園縣", "downloaded/president/2012/總統-A05-4-(桃園縣).csv"],
+    [2012, "澎湖縣", "downloaded/president/2012/總統-A05-4-(澎湖縣).csv"],
+    [2012, "臺中市", "downloaded/president/2012/總統-A05-4-(臺中市).csv"],
+    [2012, "臺北市", "downloaded/president/2012/總統-A05-4-(臺北市).csv"],
+    [2012, "臺南市", "downloaded/president/2012/總統-A05-4-(臺南市).csv"],
+    [2012, "臺東縣", "downloaded/president/2012/總統-A05-4-(臺東縣).csv"],
+    [2012, "花蓮縣", "downloaded/president/2012/總統-A05-4-(花蓮縣).csv"],
+    [2012, "苗栗縣", "downloaded/president/2012/總統-A05-4-(苗栗縣).csv"],
+    [2012, "連江縣", "downloaded/president/2012/總統-A05-4-(連江縣).csv"],
+    [2012, "金門縣", "downloaded/president/2012/總統-A05-4-(金門縣).csv"],
+    [2012, "雲林縣", "downloaded/president/2012/總統-A05-4-(雲林縣).csv"],
+    [2012, "高雄市", "downloaded/president/2012/總統-A05-4-(高雄市).csv"],
+    [2016, "南投縣", "downloaded/president/2016/總統-A05-4-(南投縣).csv"],
+    [2016, "嘉義市", "downloaded/president/2016/總統-A05-4-(嘉義市).csv"],
+    [2016, "嘉義縣", "downloaded/president/2016/總統-A05-4-(嘉義縣).csv"],
+    [2016, "基隆市", "downloaded/president/2016/總統-A05-4-(基隆市).csv"],
+    [2016, "宜蘭縣", "downloaded/president/2016/總統-A05-4-(宜蘭縣).csv"],
+    [2016, "屏東縣", "downloaded/president/2016/總統-A05-4-(屏東縣).csv"],
+    [2016, "彰化縣", "downloaded/president/2016/總統-A05-4-(彰化縣).csv"],
+    [2016, "新北市", "downloaded/president/2016/總統-A05-4-(新北市).csv"],
+    [2016, "新竹市", "downloaded/president/2016/總統-A05-4-(新竹市).csv"],
+    [2016, "新竹縣", "downloaded/president/2016/總統-A05-4-(新竹縣).csv"],
+    [2016, "桃園市", "downloaded/president/2016/總統-A05-4-(桃園市).csv"],
+    [2016, "澎湖縣", "downloaded/president/2016/總統-A05-4-(澎湖縣).csv"],
+    [2016, "臺中市", "downloaded/president/2016/總統-A05-4-(臺中市).csv"],
+    [2016, "臺北市", "downloaded/president/2016/總統-A05-4-(臺北市).csv"],
+    [2016, "臺南市", "downloaded/president/2016/總統-A05-4-(臺南市).csv"],
+    [2016, "臺東縣", "downloaded/president/2016/總統-A05-4-(臺東縣).csv"],
+    [2016, "花蓮縣", "downloaded/president/2016/總統-A05-4-(花蓮縣).csv"],
+    [2016, "苗栗縣", "downloaded/president/2016/總統-A05-4-(苗栗縣).csv"],
+    [2016, "連江縣", "downloaded/president/2016/總統-A05-4-(連江縣).csv"],
+    [2016, "金門縣", "downloaded/president/2016/總統-A05-4-(金門縣).csv"],
+    [2016, "雲林縣", "downloaded/president/2016/總統-A05-4-(雲林縣).csv"],
+    [2016, "高雄市", "downloaded/president/2016/總統-A05-4-(高雄市).csv"],
+]);
+
+0;
+
+=head1 NAME
+
+convert_dataset - convert dataset files in ODS to CSV
+
+=head1 SYNOPSIS
+
+    convert_dataset [file ...]
+
+=end
