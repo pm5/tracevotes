@@ -7,10 +7,20 @@ use YAML::Dumper;
 use utf8;
 binmode STDOUT, ":encoding(utf-8)";
 
-
 my $dumper = YAML::Dumper->new;
 
-my @fields = qw/YEAR CITY_COUNTY TOWNSHIP_CITY VILLAGE BOOTH_NUMBER CANDIDATE RECEIVED_VOTES VALID_VOTES INVALID_VOTES ISSUED_VOTES UNISSUED_VOTES POPULATION VOTING_RATE/;
+my @fields = qw/YEAR CITY_COUNTY TOWNSHIP_CITY VILLAGE BOOTH_NUMBER CANDIDATE PARTY RECEIVED_VOTES VALID_VOTES INVALID_VOTES ISSUED_VOTES UNISSUED_VOTES POPULATION VOTING_RATE/;
+
+my %parties = (
+    "(1)朱立倫王如玄" => "KMT",
+    "(1)蔡英文蘇嘉全" => "DPP",
+    "(1)謝長廷蘇貞昌" => "DPP",
+    "(2)蔡英文陳建仁" => "DPP",
+    "(2)馬英九吳敦義" => "KMT",
+    "(2)馬英九蕭萬長" => "KMT",
+    "(3)宋楚瑜徐欣瑩" => "PFP",
+    "(3)宋楚瑜林瑞雄" => "PFP",
+);
 
 sub batch_convert_ods_to_csv {
     my $ods_files = shift;
@@ -81,6 +91,7 @@ sub convert_csv_to_records {
 
         foreach my $i (@cand_cols) {
             (my $candidate = $candidates->[$i]) =~ s/\n//g;
+            my $party = $parties{$candidate};
             my $received_votes = $row->[$i];
             push @records, [
                 $year,
@@ -89,6 +100,7 @@ sub convert_csv_to_records {
                 $village,
                 $booth_number,
                 $candidate,
+                $party,
                 $received_votes,
                 $valid_votes,
                 $invalid_votes,
@@ -202,3 +214,4 @@ convert_dataset - convert dataset files in ODS to CSV
     convert_dataset [file ...]
 
 =end
+
