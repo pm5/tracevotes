@@ -1,6 +1,7 @@
 /downloaded/
 /local/
 /tmp/
+*.fth
 
 ## Perl
 !Build/
