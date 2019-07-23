@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "85236787c01a0caa24ecdbea3b927acbd9a4779611593071c1cc98b2e5142caf"
+            "sha256": "9b5322e81578ee7185babeba3c5deb3fae8a9a6996046706d28eee6c47e782f9"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -360,6 +360,29 @@
             ],
             "markers": "os_name != 'nt'",
             "version": "==0.6.0"
+        },
+        "pyarrow": {
+            "hashes": [
+                "sha256:00681c4313ea70e2910e9488863c20e9b4816bca4421c4f796b78d92c90097da",
+                "sha256:0d2e994419677740b0c096fb36fe914875ea223085430c20e5110802a4fbe606",
+                "sha256:1a90a10b056eb74646aa7b6eecef7adf872d120d33d70da67d984eb39cc51072",
+                "sha256:257816a2a292485d14d16fdd7f0a6ab3db29f62b5e6cfa09f7de64394d79103d",
+                "sha256:33c9267395ea10cb3f917417e383ffaf217bab6d27007003f67000ed9302a430",
+                "sha256:344f65f4860b061e30bbb85f6ed06666c19cf05a8129a2e272ca727299de7a53",
+                "sha256:35ab34c6493c78f2f4c9583765445791c512241a282cd05e5666faa306428080",
+                "sha256:489006e6da6d49a6782f8f9c7b4af3f4c4ba93aad13e05844a0b2682c4fef975",
+                "sha256:4d696b1a4c177c32e75bd5e1819ad3d10c55f66133f50bf3e7261cc4c1dc603d",
+                "sha256:556f5ce600172aee1521a6e25ac78563f17d265a587c76981dd52f8e1823761d",
+                "sha256:96b9c9e81024200ff9bf57647d0c90207f2454125e6381c47bc6de36b6a56f4d",
+                "sha256:9be234670bc6f7ffe709956e3e598ae84dfc4a01fa6d70c142756da42397787d",
+                "sha256:a2c6e93ef381a874d4ab41429078604cbcb1f458166f904e53e8001096fbb5c4",
+                "sha256:d07a07f8d3ec2fbb160b69e5167e08a2682c011473af3df8ee47e3cece42e586",
+                "sha256:d965b0ec26d3909bdee04a2c122e8e8fd73ea9842edbe8858e799b7a5c0fba40",
+                "sha256:f9e66b3fec6ed4925eb32aa15312a2cc4fcb59349bde0b14f7ebd16f4a30cadb",
+                "sha256:fe144bbb7ab437d3f2503f28ef36e5430210096860320ca539593a71033c1a0c"
+            ],
+            "index": "pypi",
+            "version": "==0.14.1"
         },
         "pygments": {
             "hashes": [
