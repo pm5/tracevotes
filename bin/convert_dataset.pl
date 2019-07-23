@@ -82,17 +82,17 @@ sub convert_csv_to_records {
         my $village = $row->[1];
         my $booth_number = $row->[2];
 
-        my $valid_votes    = $row->[$vote_col + 0];
-        my $invalid_votes  = $row->[$vote_col + 1];
-        my $issued_votes   = $row->[$vote_col + 4];
-        my $unissued_votes = $row->[$vote_col + 5];
-        my $population     = $row->[$vote_col + 6];
+        (my $valid_votes    = $row->[$vote_col + 0]) =~ s/,//g;
+        (my $invalid_votes  = $row->[$vote_col + 1]) =~ s/,//g;
+        (my $issued_votes   = $row->[$vote_col + 4]) =~ s/,//g;
+        (my $unissued_votes = $row->[$vote_col + 5]) =~ s/,//g;
+        (my $population     = $row->[$vote_col + 6]) =~ s/,//g;
         my $voting_rate    = $row->[$vote_col + 7];
 
         foreach my $i (@cand_cols) {
             (my $candidate = $candidates->[$i]) =~ s/\n//g;
             my $party = $parties{$candidate};
-            my $received_votes = $row->[$i];
+            (my $received_votes = $row->[$i]) =~ s/,//g;
             push @records, [
                 $year,
                 $city_county,
