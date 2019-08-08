@@ -3,138 +3,63 @@
   <title></title>
   <layer-tree-group expanded="1" checked="Qt::Checked" name="">
     <customproperties/>
-    <layer-tree-layer expanded="1" checked="Qt::Checked" id="president_changes20190806171525959" name="president_changes">
+    <layer-tree-layer expanded="1" checked="Qt::Checked" id="president_changes20190808081004795" name="president_changes">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer expanded="0" checked="Qt::Checked" id="TOWN_MOI_108061720190806164633811" name="TOWN_MOI_1080617">
-      <customproperties/>
-    </layer-tree-layer>
-    <layer-tree-layer expanded="1" checked="Qt::Checked" id="OpenStreetMap20190806174543735" name="OpenStreetMap">
+    <layer-tree-layer expanded="1" checked="Qt::Checked" id="TOWN_MOI_108061720190808080947281" name="TOWN_MOI_1080617">
       <customproperties/>
     </layer-tree-layer>
   </layer-tree-group>
   <relations/>
   <mapcanvas>
-    <units>meters</units>
+    <units>degrees</units>
     <extent>
-      <xmin>13534740.48664309084415436</xmin>
-      <ymin>2824664.30634078150615096</ymin>
-      <xmax>13570918.9781450629234314</xmax>
-      <ymax>2854813.04925909219309688</ymax>
+      <xmin>119.16664162819813555</xmin>
+      <ymin>21.41045874663607762</ymin>
+      <xmax>122.15194206182297876</xmax>
+      <ymax>26.09650233371774064</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>1</projections>
     <destinationsrs>
       <spatialrefsys>
-        <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</proj4>
-        <srsid>3857</srsid>
-        <srid>3857</srid>
-        <authid>EPSG:3857</authid>
-        <description>WGS 84 / Pseudo Mercator</description>
-        <projectionacronym>merc</projectionacronym>
-        <ellipsoidacronym>WGS84</ellipsoidacronym>
-        <geographicflag>false</geographicflag>
+        <proj4>+proj=longlat +ellps=GRS80 +no_defs</proj4>
+        <srsid>3230</srsid>
+        <srid>4019</srid>
+        <authid>EPSG:4019</authid>
+        <description>Unknown datum based upon the GRS 1980 ellipsoid</description>
+        <projectionacronym>longlat</projectionacronym>
+        <ellipsoidacronym>GRS80</ellipsoidacronym>
+        <geographicflag>true</geographicflag>
       </spatialrefsys>
     </destinationsrs>
     <layer_coordinate_transform_info>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:4019" srcDatumTransform="-1" destDatumTransform="-1" layerid="TOWN_MOI_108061720190806164633811"/>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:3857" srcDatumTransform="-1" destDatumTransform="-1" layerid="OpenStreetMap20190806174543735"/>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:3857" srcDatumTransform="-1" destDatumTransform="-1" layerid="OpenStreetMap20190806171956883"/>
+      <layer_coordinate_transform destAuthId="EPSG:4019" srcAuthId="EPSG:4019" srcDatumTransform="-1" destDatumTransform="-1" layerid="TOWN_MOI_108061720190808080947281"/>
     </layer_coordinate_transform_info>
   </mapcanvas>
   <visibility-presets/>
   <layer-tree-canvas>
     <custom-order enabled="0">
-      <item>TOWN_MOI_108061720190806164633811</item>
-      <item>president_changes20190806171525959</item>
-      <item>OpenStreetMap20190806174543735</item>
+      <item>TOWN_MOI_108061720190808080947281</item>
+      <item>president_changes20190808081004795</item>
     </custom-order>
   </layer-tree-canvas>
   <legend updateDrawingOrder="true">
     <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="president_changes" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="president_changes20190806171525959" visible="1"/>
+        <legendlayerfile isInOverview="0" layerid="president_changes20190808081004795" visible="1"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="TOWN_MOI_1080617" showFeatureCount="0">
-      <filegroup open="false" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="TOWN_MOI_108061720190806164633811" visible="1"/>
-      </filegroup>
-    </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="OpenStreetMap" showFeatureCount="0">
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="TOWN_MOI_1080617" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" layerid="OpenStreetMap20190806174543735" visible="1"/>
+        <legendlayerfile isInOverview="0" layerid="TOWN_MOI_108061720190808080947281" visible="1"/>
       </filegroup>
     </legendlayer>
   </legend>
-  <projectlayers layercount="3">
-    <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
-      <id>OpenStreetMap20190806174543735</id>
-      <datasource>&lt;GDAL_WMS>
-  &lt;Service name="TMS">
-    &lt;ServerUrl>http://tile.openstreetmap.org/${z}/${x}/${y}.png&lt;/ServerUrl>
-  &lt;/Service>
-  &lt;DataWindow>
-    &lt;UpperLeftX>-20037508.34&lt;/UpperLeftX>
-    &lt;UpperLeftY>20037508.34&lt;/UpperLeftY>
-    &lt;LowerRightX>20037508.34&lt;/LowerRightX>
-    &lt;LowerRightY>-20037508.34&lt;/LowerRightY>
-    &lt;TileLevel>19&lt;/TileLevel>
-    &lt;TileCountX>1&lt;/TileCountX>
-    &lt;TileCountY>1&lt;/TileCountY>
-    &lt;YOrigin>top&lt;/YOrigin>
-  &lt;/DataWindow>
-  &lt;Projection>EPSG:3857&lt;/Projection>
-  &lt;BlockSizeX>256&lt;/BlockSizeX>
-  &lt;BlockSizeY>256&lt;/BlockSizeY>
-  &lt;BandsCount>3&lt;/BandsCount>
-  &lt;Cache />
-&lt;/GDAL_WMS>
-</datasource>
-      <title></title>
-      <abstract></abstract>
-      <keywordList>
-        <value></value>
-      </keywordList>
-      <layername>OpenStreetMap</layername>
-      <srs>
-        <spatialrefsys>
-          <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</proj4>
-          <srsid>3857</srsid>
-          <srid>3857</srid>
-          <authid>EPSG:3857</authid>
-          <description>WGS 84 / Pseudo Mercator</description>
-          <projectionacronym>merc</projectionacronym>
-          <ellipsoidacronym>WGS84</ellipsoidacronym>
-          <geographicflag>false</geographicflag>
-        </spatialrefsys>
-      </srs>
-      <customproperties>
-        <property key="identify/format" value="Value"/>
-        <property key="ol_layer_type" value="OpenStreetMap"/>
-      </customproperties>
-      <provider>gdal</provider>
-      <noData>
-        <noDataList bandNo="1" useSrcNoData="0"/>
-        <noDataList bandNo="2" useSrcNoData="0"/>
-        <noDataList bandNo="3" useSrcNoData="0"/>
-      </noData>
-      <map-layer-style-manager current="">
-        <map-layer-style name=""/>
-      </map-layer-style-manager>
-      <pipe>
-        <rasterrenderer opacity="1" alphaBand="-1" blueBand="3" greenBand="2" type="multibandcolor" redBand="1">
-          <rasterTransparency/>
-        </rasterrenderer>
-        <brightnesscontrast brightness="0" contrast="0"/>
-        <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
-        <rasterresampler maxOversampling="2"/>
-      </pipe>
-      <blendMode>0</blendMode>
-    </maplayer>
-    <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
-      <id>TOWN_MOI_108061720190806164633811</id>
-      <datasource>../../../Downloads/mapdata20181106/TOWN_MOI_1080617.shp</datasource>
+  <projectlayers layercount="2">
+    <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+      <id>TOWN_MOI_108061720190808080947281</id>
+      <datasource>../mapdata20181106/TOWN_MOI_1080617.shp</datasource>
       <title></title>
       <abstract></abstract>
       <keywordList>
@@ -154,16 +79,15 @@
         </spatialrefsys>
       </srs>
       <provider encoding="UTF-8">ogr</provider>
-      <previewExpression>COALESCE( "COUNTYNAME", '&lt;NULL>' )</previewExpression>
+      <previewExpression></previewExpression>
       <vectorjoins>
-        <join hasCustomPrefix="1" joinFieldName="fullvill" customPrefix="president_changes_" targetFieldName="FULLVILL" memoryCache="1" joinLayerId="president_changes20190806171525959">
+        <join hasCustomPrefix="1" joinFieldName="fullvill" customPrefix="" targetFieldName="FULLVILL" memoryCache="1" joinLayerId="president_changes20190808081004795">
           <joinFieldsSubset>
-            <field name="city_county"/>
-            <field name="township_city"/>
-            <field name="village"/>
-            <field name="dpp_to_kmt_rates_2008"/>
-            <field name="dpp_to_kmt_rates_2012"/>
-            <field name="dpp_to_kmt_rates_2016"/>
+            <field name="issued_votes_2016"/>
+            <field name="population_2016"/>
+            <field name="dpp_over_kmt_rates_2008"/>
+            <field name="dpp_over_kmt_rates_2012"/>
+            <field name="dpp_over_kmt_rates_2016"/>
             <field name="changes_at_2012"/>
             <field name="changes_at_2016"/>
           </joinFieldsSubset>
@@ -207,40 +131,38 @@
         <edittype widgetv2type="TextEdit" name="FULLVILL">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_city_county">
+        <edittype widgetv2type="TextEdit" name="issued_votes_2016">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_township_city">
+        <edittype widgetv2type="TextEdit" name="population_2016">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_village">
+        <edittype widgetv2type="TextEdit" name="dpp_over_kmt_rates_2008">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_dpp_to_kmt_rates_2008">
+        <edittype widgetv2type="TextEdit" name="dpp_over_kmt_rates_2012">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_dpp_to_kmt_rates_2012">
+        <edittype widgetv2type="TextEdit" name="dpp_over_kmt_rates_2016">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_dpp_to_kmt_rates_2016">
+        <edittype widgetv2type="TextEdit" name="changes_at_2012">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_changes_at_2012">
-          <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_changes_at_2016">
+        <edittype widgetv2type="TextEdit" name="changes_at_2016">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
       </edittypes>
-      <renderer-v2 attr="president_changes_changes_at_2016" symbollevels="0" type="graduatedSymbol">
+      <renderer-v2 attr="changes_at_2016" symbollevels="0" type="graduatedSymbol">
         <ranges>
-          <range render="true" symbol="0" lower="-0.237404" upper="-0.102163" label=" -0.24 - -0.10 "/>
-          <range render="true" symbol="1" lower="-0.102163" upper="0.033077" label=" -0.10 - 0.03 "/>
-          <range render="true" symbol="2" lower="0.033077" upper="0.168318" label=" 0.03 - 0.17 "/>
-          <range render="true" symbol="3" lower="0.168318" upper="0.303558" label=" 0.17 - 0.30 "/>
-          <range render="true" symbol="4" lower="0.303558" upper="0.438799" label=" 0.30 - 0.44 "/>
-          <range render="true" symbol="5" lower="0.438799" upper="0.574039" label=" 0.44 - 0.57 "/>
-          <range render="true" symbol="6" lower="0.574039" upper="0.709280" label=" 0.57 - 0.71 "/>
+          <range render="true" symbol="0" lower="-0.237404" upper="-0.119068" label=" -0.24 - -0.12 "/>
+          <range render="true" symbol="1" lower="-0.119068" upper="-0.000733" label=" -0.12 - 0.00 "/>
+          <range render="true" symbol="2" lower="-0.000733" upper="0.117603" label=" 0.00 - 0.12 "/>
+          <range render="true" symbol="3" lower="0.117603" upper="0.235938" label=" 0.12 - 0.24 "/>
+          <range render="false" symbol="4" lower="0.235938" upper="0.354274" label=" 0.24 - 0.35 "/>
+          <range render="false" symbol="5" lower="0.354274" upper="0.472609" label=" 0.35 - 0.47 "/>
+          <range render="false" symbol="6" lower="0.472609" upper="0.590945" label=" 0.47 - 0.59 "/>
+          <range render="false" symbol="7" lower="0.590945" upper="0.709280" label=" 0.59 - 0.71 "/>
         </ranges>
         <symbols>
           <symbol alpha="1" type="fill" name="0">
@@ -261,7 +183,7 @@
           <symbol alpha="1" type="fill" name="1">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0"/>
-              <prop k="color" v="21,98,169,255"/>
+              <prop k="color" v="16,92,164,255"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="offset" v="0,0"/>
               <prop k="offset_map_unit_scale" v="0,0"/>
@@ -276,7 +198,7 @@
           <symbol alpha="1" type="fill" name="2">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0"/>
-              <prop k="color" v="61,141,195,255"/>
+              <prop k="color" v="49,129,189,255"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="offset" v="0,0"/>
               <prop k="offset_map_unit_scale" v="0,0"/>
@@ -291,7 +213,7 @@
           <symbol alpha="1" type="fill" name="3">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0"/>
-              <prop k="color" v="114,178,215,255"/>
+              <prop k="color" v="90,162,207,255"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="offset" v="0,0"/>
               <prop k="offset_map_unit_scale" v="0,0"/>
@@ -306,7 +228,7 @@
           <symbol alpha="1" type="fill" name="4">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0"/>
-              <prop k="color" v="175,209,231,255"/>
+              <prop k="color" v="142,193,221,255"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="offset" v="0,0"/>
               <prop k="offset_map_unit_scale" v="0,0"/>
@@ -321,7 +243,7 @@
           <symbol alpha="1" type="fill" name="5">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0"/>
-              <prop k="color" v="215,230,244,255"/>
+              <prop k="color" v="190,215,236,255"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="offset" v="0,0"/>
               <prop k="offset_map_unit_scale" v="0,0"/>
@@ -334,6 +256,21 @@
             </layer>
           </symbol>
           <symbol alpha="1" type="fill" name="6">
+            <layer pass="0" class="SimpleFill" locked="0">
+              <prop k="border_width_map_unit_scale" v="0,0"/>
+              <prop k="color" v="219,233,246,255"/>
+              <prop k="joinstyle" v="bevel"/>
+              <prop k="offset" v="0,0"/>
+              <prop k="offset_map_unit_scale" v="0,0"/>
+              <prop k="offset_unit" v="MM"/>
+              <prop k="outline_color" v="0,0,0,255"/>
+              <prop k="outline_style" v="solid"/>
+              <prop k="outline_width" v="0.26"/>
+              <prop k="outline_width_unit" v="MM"/>
+              <prop k="style" v="solid"/>
+            </layer>
+          </symbol>
+          <symbol alpha="1" type="fill" name="7">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0"/>
               <prop k="color" v="247,251,255,255"/>
@@ -349,6 +286,23 @@
             </layer>
           </symbol>
         </symbols>
+        <source-symbol>
+          <symbol alpha="1" type="fill" name="0">
+            <layer pass="0" class="SimpleFill" locked="0">
+              <prop k="border_width_map_unit_scale" v="0,0"/>
+              <prop k="color" v="153,213,140,255"/>
+              <prop k="joinstyle" v="bevel"/>
+              <prop k="offset" v="0,0"/>
+              <prop k="offset_map_unit_scale" v="0,0"/>
+              <prop k="offset_unit" v="MM"/>
+              <prop k="outline_color" v="0,0,0,255"/>
+              <prop k="outline_style" v="solid"/>
+              <prop k="outline_width" v="0.26"/>
+              <prop k="outline_width_unit" v="MM"/>
+              <prop k="style" v="solid"/>
+            </layer>
+          </symbol>
+        </source-symbol>
         <colorramp type="gradient" name="[source]">
           <prop k="color1" v="247,251,255,255"/>
           <prop k="color2" v="8,48,107,255"/>
@@ -506,7 +460,7 @@
       </customproperties>
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
-      <layerTransparency>50</layerTransparency>
+      <layerTransparency>0</layerTransparency>
       <displayfield>COUNTYNAME</displayfield>
       <label>0</label>
       <labelattributes>
@@ -571,35 +525,32 @@
         <edittype widgetv2type="TextEdit" name="FULLVILL">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_city_county">
+        <edittype widgetv2type="TextEdit" name="issued_votes_2016">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_township_city">
+        <edittype widgetv2type="TextEdit" name="population_2016">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_village">
+        <edittype widgetv2type="TextEdit" name="dpp_over_kmt_rates_2008">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_dpp_to_kmt_rates_2008">
+        <edittype widgetv2type="TextEdit" name="dpp_over_kmt_rates_2012">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_dpp_to_kmt_rates_2012">
+        <edittype widgetv2type="TextEdit" name="dpp_over_kmt_rates_2016">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_dpp_to_kmt_rates_2016">
+        <edittype widgetv2type="TextEdit" name="changes_at_2012">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_changes_at_2012">
-          <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="president_changes_changes_at_2016">
+        <edittype widgetv2type="TextEdit" name="changes_at_2016">
           <widgetv2config IsMultiline="0" fieldEditable="0" UseHtml="0" labelOnTop="0"/>
         </edittype>
       </edittypes>
     </maplayer>
     <maplayer minimumScale="0" maximumScale="1e+08" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
-      <id>president_changes20190806171525959</id>
-      <datasource>file:../../../Downloads/president_changes.csv?type=csv&amp;geomType=none&amp;subsetIndex=no&amp;watchFile=no</datasource>
+      <id>president_changes20190808081004795</id>
+      <datasource>file:../data/president_changes.csv?type=csv&amp;geomType=none&amp;subsetIndex=no&amp;watchFile=no</datasource>
       <title></title>
       <abstract></abstract>
       <keywordList>
@@ -619,7 +570,7 @@
         </spatialrefsys>
       </srs>
       <customproperties/>
-      <provider encoding="Big5">delimitedtext</provider>
+      <provider encoding="UTF-8">delimitedtext</provider>
       <previewExpression></previewExpression>
       <vectorjoins/>
       <expressionfields/>
@@ -636,22 +587,28 @@
         <edittype widgetv2type="TextEdit" name="village">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="dpp_to_kmt_rates_2008">
+        <edittype widgetv2type="TextEdit" name="issued_votes_2016">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="dpp_to_kmt_rates_2012">
+        <edittype widgetv2type="TextEdit" name="population_2016">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="dpp_to_kmt_rates_2016">
+        <edittype widgetv2type="TextEdit" name="dpp_over_kmt_rates_2008">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="fullvill">
+        <edittype widgetv2type="TextEdit" name="dpp_over_kmt_rates_2012">
+          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+        </edittype>
+        <edittype widgetv2type="TextEdit" name="dpp_over_kmt_rates_2016">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="changes_at_2012">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="changes_at_2016">
+          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+        </edittype>
+        <edittype widgetv2type="TextEdit" name="fullvill">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
       </edittypes>
@@ -673,22 +630,28 @@
         <edittype widgetv2type="TextEdit" name="village">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="dpp_to_kmt_rates_2008">
+        <edittype widgetv2type="TextEdit" name="issued_votes_2016">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="dpp_to_kmt_rates_2012">
+        <edittype widgetv2type="TextEdit" name="population_2016">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="dpp_to_kmt_rates_2016">
+        <edittype widgetv2type="TextEdit" name="dpp_over_kmt_rates_2008">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="fullvill">
+        <edittype widgetv2type="TextEdit" name="dpp_over_kmt_rates_2012">
+          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+        </edittype>
+        <edittype widgetv2type="TextEdit" name="dpp_over_kmt_rates_2016">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="changes_at_2012">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="changes_at_2016">
+          <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+        </edittype>
+        <edittype widgetv2type="TextEdit" name="fullvill">
           <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
         </edittype>
       </edittypes>
@@ -715,25 +678,9 @@
     </Gui>
     <Digitizing>
       <DefaultSnapToleranceUnit type="int">1</DefaultSnapToleranceUnit>
-      <LayerSnappingList type="QStringList">
-        <value>TOWN_MOI_108061720190806164633811</value>
-      </LayerSnappingList>
-      <LayerSnappingEnabledList type="QStringList">
-        <value>enabled</value>
-      </LayerSnappingEnabledList>
       <SnappingMode type="QString">current_layer</SnappingMode>
-      <AvoidIntersectionsList type="QStringList"/>
-      <LayerSnappingToleranceUnitList type="QStringList">
-        <value>1</value>
-      </LayerSnappingToleranceUnitList>
-      <LayerSnapToList type="QStringList">
-        <value>to_vertex_and_segment</value>
-      </LayerSnapToList>
       <DefaultSnapType type="QString">to vertex and segment</DefaultSnapType>
       <DefaultSnapTolerance type="double">10</DefaultSnapTolerance>
-      <LayerSnappingToleranceList type="QStringList">
-        <value>10.000000</value>
-      </LayerSnappingToleranceList>
     </Digitizing>
     <PositionPrecision>
       <DecimalPlaces type="int">2</DecimalPlaces>
