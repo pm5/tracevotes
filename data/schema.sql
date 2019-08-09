@@ -9,7 +9,8 @@ CREATE TABLE rates (
   received_votes int not null,
   issued_votes int not null,
   population int not null,
-  rate real not null
+  rate real not null,
+  voting_rate real not null
 );
 
-COPY rates FROM '/app/data/president_rates.csv' WITH (FORMAT csv);
+COPY rates FROM '/app/data/president_rates.csv' DELIMITER ',' CSV HEADER;
