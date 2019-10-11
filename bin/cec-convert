@@ -8,6 +8,7 @@ use utf8;
 binmode STDOUT, ":encoding(utf-8)";
 
 my $dumper = YAML::Dumper->new;
+my $paths = map {} <DATA>;
 
 my @fields = qw/YEAR CITY_COUNTY TOWNSHIP_CITY VILLAGE BOOTH_NUMBER CANDIDATE PARTY RECEIVED_VOTES VALID_VOTES INVALID_VOTES ISSUED_VOTES UNISSUED_VOTES POPULATION VOTING_RATE/;
 
@@ -213,5 +214,12 @@ convert_dataset - convert dataset files in ODS to CSV
 
     convert_dataset [file ...]
 
-=end
+=cut
 
+__DATA__
+president,2008,20080322-總統
+president,2016,2016總統立委/總統
+president,2012,20120114-總統及立委/總統
+mayor_of_special_municipality,2014,2014-103年地方公職人員選舉/直轄市市長
+mayor_of_provincial_city,2014,2014-103年地方公職人員選舉/縣市市長
+magistrate_of_county,2014,2014-103年地方公職人員選舉/縣市市長

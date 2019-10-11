@@ -1,0 +1,8 @@
+#!/bin/bash
+# Download vote data from cec open data at <https://data.gov.tw/dataset/13119>
+
+URL='http://data.cec.gov.tw/%E9%81%B8%E8%88%89%E8%B3%87%E6%96%99%E5%BA%AB/votedata.zip'
+
+cd tmp
+[ -r votedata.zip ] || curl -C - -o votedata.zip ${URL}
+unar -e big5 -f votedata.zip

@@ -15,3 +15,7 @@ Prerequisites:
 $ pipenv install
 $ make nb
 ```
+
+## Data source
+
+https://data.gov.tw/dataset/13119 aka http://data.cec.gov.tw/選舉資料庫/votedata.zip from https://db.cec.gov.tw/

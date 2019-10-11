@@ -1,0 +1,8 @@
+#!/bin/bash
+# Download Taiwan village shapefiles from <https://data.gov.tw/dataset/7438>
+
+URL='http://data.moi.gov.tw/MoiOD/System/DownloadFile.aspx?DATA=B8AF344F-B5C6-4642-AF46-1832054399CE'
+
+cd tmp
+[ -r mapdata.zip ] || curl -L -o mapdata.zip ${URL}
+unzip -o mapdata.zip
